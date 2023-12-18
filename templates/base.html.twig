@@ -15,12 +15,18 @@
         {% endblock %}
     </head>
     <body>
-        {% include 'Components/header.html.twig' %}
+        {% block header %}
+            {% include 'Components/header.html.twig' %}
+        {% endblock %}
+
         <a href="{{ path('app_connexion') }}">Connexion</a>
-        <div class="flex flex-col justify-center items-center">
+        <div class="flex justify-center items-center">
             {% block body %}{% endblock %}
         </div>
-        {% include 'Components/footer.html.twig' %}
+
+        {% block footer %}
+            {% include 'Components/footer.html.twig' %}
+        {% endblock %}
     </body>
 
 </html>
