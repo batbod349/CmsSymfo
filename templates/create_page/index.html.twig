@@ -1,20 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CreatePageController!{% endblock %}
-
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="w-96 mx-auto p-5 border border-gray-300 rounded-lg bg-gray-100">
+        <h1 class="text-2xl font-bold mb-4">Formulaire de Connexion</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        {{ form_start(form, {'attr': {'class': 'mb-4'}}) }}
+        <div class="mb-4">
+            {{ form_row(form.Titre, {'attr': {'class': 'w-full p-2 border border-gray-300 rounded'}}) }}
+        </div>
+        <label for="content" class="block mb-4 text-lg">La partie édition du site:</label>
+        <div class="mb-4">
+            {{ form_row(form.Contenu, {'attr': {'class': 'w-full h-40 p-2 border border-gray-300 rounded', 'id': 'editor'}}) }}
+        </div>
+        <div class="mb-4">
+            {{ form_row(form.Image, {'attr': {'class': 'w-full p-2 border border-gray-300 rounded'}}) }}
+        </div>
+        
+     <button type="submit" onclick="return confirm('Voulez-vous soumettre le formulaire ?')" class="bg-green-500 text-white border-none p-2 rounded cursor-pointer">Envoyer</button>
+        {{ form_end(form) }}
+    </div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/laragon/www/CmsSymfo/src/Controller/CreatePageController.php'|file_link(0) }}">src/Controller/CreatePageController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/laragon/www/CmsSymfo/templates/create_page/index.html.twig'|file_link(0) }}">templates/create_page/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: '#page_Contenu',
+        height: 400,
+        plugins: 'link image code',
+        toolbar: 'undo redo | bold italic | link image | code',
+    });
+</script>
 {% endblock %}
