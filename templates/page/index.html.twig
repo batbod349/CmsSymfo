@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PageController!{% endblock %}
+{% block title %}Page{% endblock %}
 
 {% block body %}
 
     <div>
         <h1>{{ page.titre }}</h1>
-        <h2>{{ page.contenu }}</h2>
+        <h2>{{ page.contenu | raw}}</h2>
         <h2>{{ page.image }}</h2>
     </div>
 
