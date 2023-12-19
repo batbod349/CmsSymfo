@@ -16,8 +16,8 @@ class Page
     #[ORM\Column(length: 255)]
     private ?string $Titre = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Contenu = null;
+    #[ORM\Column(type: 'text')]
+    private $Contenu = null;
 
     #[ORM\Column(length: 255)]
     private ?string $Image = null;
@@ -42,7 +42,7 @@ class Page
         return $this;
     }
 
-    public function getContenu(): ?string
+    public function getContenu(): ?text
     {
         return $this->Contenu;
     }
