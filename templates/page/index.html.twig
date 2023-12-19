@@ -3,11 +3,14 @@
 {% block title %}Page{% endblock %}
 
 {% block body %}
-
-    <div>
-        <h1>{{ page.titre }}</h1>
-        <h2>{{ page.contenu | raw}}</h2>
-        <h2>{{ page.image }}</h2>
+    <div class="h-fit w-full m-6 shadow-xl bg-blue-300/40 rounded-lg flex flex-col justify-center items-center">
+        <div class="flex justify-center items-center">
+            <div class="m-6 rounded-lg h-28 w-28">
+                <img class="rounded-xl" src="{{ asset('photo/' ~ page.Image) }}" alt="Image principale de la page">
+            </div>
+            <h1 class="font-Consolas font-bold text-4xl underline underline-offset-4 text-blue-700">{{ page.titre }}</h1>
+        </div>
+        <h2 class="font-semibold text-lg">{{ page.contenu | raw}}</h2>
     </div>
 
 {% endblock %}
