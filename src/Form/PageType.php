@@ -12,10 +12,14 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Site;
 
+
 class PageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+
+        $imagePath = $options['image_path'] ?? null;
+
         $builder
             ->add('Titre', TextType::class) // Champ pour le titre
             ->add('Contenu', TextareaType::class, [
@@ -23,7 +27,11 @@ class PageType extends AbstractType
                     'class' => 'tinymce',
                 ],
             ])
-            ->add('Image', FileType::class, ['required' => false]); // Champ pour l'image
+            ->add('Image', FileType::class, [ // Utilisez FileType::class pour le champ de téléchargement de fichier
+                'required' => false,
+                'data' => $imagePath, // Utilisez le chemin de l'image pour pré-remplir le champ
+                'mapped' => false,
+            ]); // Indiquez que ce champ n'est pas mappé à l'entité
             // ->add('site', EntityType::class, [
             //     'class' => Site::class,
             //     'choice_label' => 'titre', // Remplacez 'nom' par la propriété du Site à afficher
