@@ -44,7 +44,6 @@ class CreatePageController extends AbstractController
             $page->setImage($newFilename);
         }
 
-
             $this->entityManagerInterface->persist($page);
 
             $this->entityManagerInterface->flush();
