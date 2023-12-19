@@ -1,0 +1,6 @@
+
+App\Entity\Page:
+  page{0..5}: 
+    titre: "<sentence()>"
+    contenu: "<text()>"
+    image: "<url()>"

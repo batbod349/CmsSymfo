@@ -1,0 +1,33 @@
+{% block header %}
+  <header class="header sticky top-0 bg-white shadow-md flex items-center justify-between px-8 py-02">
+      <!-- logo -->
+      <h1 class="flex w-3/12 items-center">
+          <div class="w-12 h-12">
+            <img class="rounded-lg" src="img/req1.png" alt="Logo du site">
+          </div>
+          <div class="place-content-center">
+            <a class="pl-3 font-bold font-sans text-center" href="{{ path('app_home') }}">Nom du site</a>
+          </div>
+      </h1>
+
+      <!-- navigation -->
+      <nav class="nav font-semibold text-lg">
+          <ul class="flex items-center">
+              <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer active">
+                <a href="">Accueil</a>
+              </li>
+              <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+                <a href="">Page1</a>
+              </li>
+              <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+                <a href="">Page2</a>
+              </li>
+              <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
+                <a href="">Page3</a>
+              </li>
+          </ul>
+      </nav>
+      <div class="w-3/12 flex justify-end">
+      </div>
+  </header>
+{% endblock %}

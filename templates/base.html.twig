@@ -2,21 +2,32 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Bienvenue!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {% block stylesheets %}
+            <link href="https://cdn.jsdelivr.net/npm/tailwindcss@{version}/dist/tailwind.min.css" rel="stylesheet">
             {{ encore_entry_link_tags('app') }}
             {{ ux_controller_link_tags() }}
         {% endblock %}
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-{% block importmap %}{{ importmap('app') }}{% endblock %}
+         {{ encore_entry_script_tags('app') }}
+    {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
     <body>
+        {% block header %}
+            {% include 'Components/header.html.twig' %}
+        {% endblock %}
+
         <a href="{{ path('app_connexion') }}">Connexion</a>
-        {% block body %}
+        <div class="flex justify-center items-center">
+            {% block body %}{% endblock %}
+        </div>
+
+        {% block footer %}
+            {% include 'Components/footer.html.twig' %}
         {% endblock %}
     </body>
+
 </html>
