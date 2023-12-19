@@ -18,7 +18,7 @@ class InscriptionController extends AbstractController
 {
 
     #[Route('/inscription', name: 'app_inscription', methods: ['GET', 'POST'])]
-    public function registration(Request $request, EntityManagerInterface $manager, UserPasswordHasherInterface $userPasswordHasher): Response 
+    public function registration(Request $request, EntityManagerInterface $manager, UserPasswordHasherInterface $userPasswordHasher): Response
     {
 
         $user = new User();
