@@ -42,7 +42,7 @@ class Page
         return $this;
     }
 
-    public function getContenu(): ?text
+    public function getContenu(): ?string
     {
         return $this->Contenu;
     }
