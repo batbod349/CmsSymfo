@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+{% block body %}
+
+<main class="py-8">
+  <!---bouton + -->
+<section id="call-to-action">
+  <div class="container mx-auto flex-col justify-center items-center">
+    <div class="pb-8 text-center">
+      <h2 class="text-3xl font-bold mb-4">Essayez notre CMS gratuitement</h2>
+      <p class="text-xl">Créez votre site web ou blog en quelques minutes</p>
+      <img src="../Img/4823016.jpg" alt="Image d'accueil" class="py-12 w-full rounded-lg">
+    </div>
+  </div>
+</section>
+
+
+{{ form_start(form) }}
+
+<div class="p-12 gap-2 w-full flex flex-col justify-center items-center">
+  <h1 class="text-3xl font-bold mb-4">Nom de votre site</h1>
+
+  {{ form_row(form.Titre, {'attr': {'class': 'p-3 w-80 h-12 text-2xl font-bold bg-white shadow-lg border-2 border-blue-600 rounded-lg'}}) }}
+
+  <p class="text-2xl font-semibold my-4">Ajouter votre image</p>
+
+  {{ form_row(form.Logo,) }}
+
+  <a href="{{ path('app_home') }}" class="text-2xl my-6 text-white font-semibold">
+    <button type="submit" class="rounded-lg py-3 px-6 bg-black hover:bg-blue-600">Valider</button>
+  </a>
+</div>
+
+{{ form_end(form) }}
+
+<div class="w-full flex justify-center items-center">
+  <a href="{{ path('app_home') }}">
+    <div class="w-fit h-fit py-2 px-6 bg-black hover:bg-blue-600 rounded-lg flex justify-center items-center">
+      <p class="text-center text-2xl text-white font-bold mb-4">Gestion de mon site</p>
+    </div>
+  </a>
+</div>
+{% endblock %}
