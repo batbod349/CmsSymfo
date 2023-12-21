@@ -2,108 +2,48 @@
 
 {% block title %}Accueil{% endblock %}
 {% block body %}
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<title> CMS Master</title>
-<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body>
 
-
-  <header class="bg-gray-900 py-8">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-white font-bold uppercase"> CMS Master</h1>
-      <nav class="flex">
-        <a href="#" class="p-2 text-white">Accueil</a>
-        <a href="#" class="p-2 text-white">Articles</a>
-        <a href="#" class="p-2 text-white">Pages</a>
-        <a href="#" class="p-2 text-white">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-
-
-
-  <main class="py-8">
+<main class="py-8">
   <!---bouton + -->
 <section id="call-to-action">
-  <div class="container mx-auto flex justify-center items-center">
-    <div class="call-to-action-content text-center">
+  <div class="container mx-auto flex-col justify-center items-center">
+    <div class="pb-8 text-center">
       <h2 class="text-3xl font-bold mb-4">Essayez notre CMS gratuitement</h2>
       <p class="text-xl">Créez votre site web ou blog en quelques minutes</p>
-      <div class=" flex-col justify-center">
-  <a href="#" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md -blue-700 -none -2 -blue-400 -opacity-75 text-center sticky">+</a>
-  <p class="text-white font-semibold text-center bg-black rounded-lg p-4">Ajouter une page</p>
-</div>
-
-      {# <div class="flex-col justify-center">
-  <a href="#" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md -blue-700 -none -2 -blue-400 -opacity-75 text-center sticky">+</a>
-  <p class="text-white font-semibold text-center bg-black rounded-lg p-4">Ajouter une page</p>
-</div> #}
-
+      <img src="../Img/4823016.jpg" alt="Image d'accueil" class="py-12 w-full rounded-lg">
     </div>
   </div>
 </section>
 
 
 
+<div class="p-12 w-full flex flex-col justify-center items-center">
+  <h1 class="text-3xl font-bold mb-4">Nom de votre site</h1>
+  <input class="p-3 w-80 h-12 text-2xl font-bold bg-white shadow-lg border-2 border-blue-600 rounded-lg" type="text" name="nomSite"/>
+  <a href="#" class="text-2xl text-white font-semibold">
+    <div class="rounded-lg my-6 py-3 px-6 bg-black hover:bg-blue-600">
+      <p>Modifier</p>
+    </div>
+  </a>
+</div>
 
-<!---bouton + -->
-    <section id="hero" class="bg-gray-50">
-    {# <div class="fixed bg-image rounded-lg" style="background-image: url('../image/4823016.jpg');"></div> #}
-      <img src="../image/4823016.jpg" alt="Image d'accueil" class="w-full rounded-lg">
-      <div class="hero-content text-center">
-        <h2 class="text-3xl font-bold mb-4">Découvrez notre CMS</h2>
-        <p class="text-xl">Notre CMS est la solution idéale pour créer votre site web ou blog. Il est simple à utiliser, complet et personnalisable.</p>
-        <a href="#" class="btn btn-primary">En savoir plus</a>
-      </div>
-    </section>
+<div class="text-center">
+  <h2 class="text-3xl font-bold mb-4">Vos pages :</h2>
+  <a href="{{ path('app_create_page') }}" ><p class="justify-center hover:bg-blue-600 text-white font-semibold text-center bg-black rounded-lg my-6 p-4">Ajouter une page</p></a>
+</div>
 
-
-    <section id="articles" class="mt-8">
-      <h2 class="text-2xl font-bold mb-4">Nos derniers articles</h2>
-      <div class="articles">
-        <article class="mb-4">
-          <a href="#">
-            <img src="../image/seo.jpg" alt="Image de l'article sur le SEO" class="rounded-lg">
-            <h3 class="text-xl font-bold mb-2">L'importance du SEO pour votre site web</h3>
-            <p class="text-base mb-2">Découvrez comment optimiser votre site web pour les moteurs de recherche et attirer plus de visiteurs.</p>
-          </a>
-        </article>
-        <article class="mb-4">
-          <a href="#">
-            <img src="../image/blog.jpg" alt="Image de l'article sur la création d'un blog" class="rounded-lg">
-            <h3 class="text-xl font-bold mb-2">Comment créer un blog efficace</h3>
-            <p class="text-base mb-2">Apprenez à créer un blog attrayant et informatif qui attirera un public fidèle.</p>
-          </a>
-        </article>
-        <article class="mb-4">
-          <a href="#">
-            <img src="../image/wordpress.jpg" alt="Image de l'article sur les plugins WordPress" class="rounded-lg">
-            <h3 class="text-xl font-bold mb-2">Les meilleurs plugins WordPress</h3>
-            <p class="text-base mb-2">Découvrez les meilleurs plugins WordPress pour améliorer votre site web.</p>
-          </a>
-        </article>
-      </div>
-    </section>
-
-    <section id="pages" class="mt-8">
-      <h2 class="text-2xl font-bold mb-4">Nos pages les plus populaires</h2>
-      <div class="pages">
-        <div class="card mb-4">
-          <a href="#">
-            <img src="../image/propos.jpg" alt="Image de la page À propos" class="rounded-lg">
-            <h3 class="text-xl font-bold mb-2">À propos</h3>
-            <p class="text-base mb-2">En savoir plus sur notre équipe et notre projet.</p>
-          </a>
+<div class="w-full p-8 h-fit flex flex-col justify-center place-items-center">
+  <ul class="list-none flex">
+    {% for page in pages %}
+      <li><a href="{{ path('app_showPage', {'id' : page.id})}}">
+        <div class="h-52 w-52 flex my-6 mx-20 rounded-lg bg-gray-400">
+          <img class="rounded-lg" src="{{ asset('photo/' ~ page.Image) }}" alt="Image principale de la page">
         </div>
-        <div class="card mb-4">
-          <a href="#">
-            <img src="../image/blog.jpg"
-
-
+      </a>
+      <p class="text-lg font-semibold text-center">{{page.Titre}}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
 
 {% endblock %}
