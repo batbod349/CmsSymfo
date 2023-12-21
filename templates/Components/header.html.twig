@@ -14,7 +14,7 @@
       <nav class="nav font-semibold text-lg">
           <ul class="flex items-center">
               <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer active">
-                <a href="">Accueil</a>
+                <a href="{{ path('app_home') }}">Accueil</a>
               </li>
               <li class="p-4 border-b-2 border-blue-500 border-opacity-0 hover:border-opacity-100 hover:text-blue-500 duration-200 cursor-pointer">
                 <a href="">Page1</a>
@@ -28,6 +28,37 @@
           </ul>
       </nav>
       <div class="w-3/12 flex justify-end">
+        <div class="p-4">
+    <div class="relative inline-block text-left">
+        <div>
+            <button type="button" class="inline-flex justify-center items-center w-20 h-10 px-4 py-2 bg-blue-500 text-white font-medium rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+              </svg>
+            </button>
+        </div>
+
+        <div class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 invisible opacity-0 transition-all duration-300 transform scale-95">
+            <div class="py-1">
+                <a href="{{ path('app_connexion') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Connexion</a>
+                <a href="{{ path('app_inscription') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Inscription</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const dropdownButton = document.querySelector('.relative');
+        const dropdownMenu = document.querySelector('.origin-top-right');
+
+        dropdownButton.addEventListener('mouseenter', function () {
+            dropdownMenu.classList.remove('invisible', 'opacity-0', 'scale-95');
+        });
+
+        dropdownButton.addEventListener('mouseleave', function () {
+            dropdownMenu.classList.add('invisible', 'opacity-0', 'scale-95');
+        });
+    </script>
+</div>
       </div>
   </header>
 {% endblock %}
